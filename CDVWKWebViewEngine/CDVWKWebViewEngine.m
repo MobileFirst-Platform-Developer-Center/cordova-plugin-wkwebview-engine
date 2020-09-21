@@ -374,7 +374,7 @@ static void * KVOContext = &KVOContext;
     CDVViewController* vc = (CDVViewController*)self.viewController;
     [CDVUserAgentUtil releaseLock:vc.userAgentLockToken];
 
-    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:CDVPageDidLoadNotification object:webView]];
+   // [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:CDVPageDidLoadNotification object:webView]];
 }
 
 - (void)webView:(WKWebView*)theWebView didFailProvisionalNavigation:(WKNavigation*)navigation withError:(NSError*)error

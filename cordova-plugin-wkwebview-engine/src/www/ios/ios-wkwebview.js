@@ -1,3 +1,4 @@
+cordova.define("cordova-plugin-wkwebview-engine.ios-wkwebview", function(require, exports, module) {
 /*
  *
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -17,32 +18,16 @@
  * specific language governing permissions and limitations
  * under the License.
  *
- */
+*/
 
-exports.defineAutoTests = function () {
-    describe('cordova-plugin-wkwebview-engine (cordova)', function () {
-        it('cordova-plugin-wkwebview-engine.spec.1 should exist', function () {
-            expect(window).toBeDefined();
-        });
-    });
+var exec = require('cordova/exec');
+
+var WkWebKit = {
+    allowsBackForwardNavigationGestures: function (allow) {
+        exec(null, null, 'CDVWKWebViewEngine', 'allowsBackForwardNavigationGestures', [allow]);
+    }
 };
 
-exports.defineManualTests = function (contentEl, createActionButton) {
-    contentEl.innerHTML = 'Your HTML instructions here';
+module.exports = WkWebKit;
 
-    createActionButton(
-        'Do something 1',
-        function () {
-            // do something 1;
-        },
-        'do-something-1'
-    );
-
-    createActionButton(
-        'Do something 2',
-        function () {
-            // do something 2;
-        },
-        'do-something-2'
-    );
-};
+});
